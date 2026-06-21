@@ -1,7 +1,9 @@
 
 
 const ProductsTable = () => {
-  return <></>;
+  return <>
+    ProductTable
+  </>;
 };
 
 export default ProductsTable;
