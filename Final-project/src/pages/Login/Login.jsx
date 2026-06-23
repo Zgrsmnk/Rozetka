@@ -64,12 +64,12 @@ const Login = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: 5,
+              // gap: 5,
               paddingTop: "80.5px",
               width: "277px",
             }}
           >
-            <Box>
+            <Box sx={{ pb: "85px" }}>
               <img src={Logo} alt="Logo" />
             </Box>
             <TextField
@@ -84,6 +84,7 @@ const Login = () => {
                 "& .MuiInputLabel-root.Mui-focused": {
                   color: "#44B26F",
                 },
+                pb: "46px",
               }}
               {...register("email", {
                 validate: composeValidators(required),
@@ -104,6 +105,7 @@ const Login = () => {
                   "& .MuiInputLabel-root.Mui-focused": {
                     color: "#44B26F",
                   },
+                  pb: "37px",
                 }}
                 {...register("password", {
                   validate: composeValidators(required),
@@ -116,11 +118,12 @@ const Login = () => {
                 sx={{
                   position: "absolute",
                   right: 12,
-                  top: "50%",
-                  transform: "translateY(-50%)",
+                  top: 17,
+                  // transform: "translateY(-50%)",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
+                  color: "#44B26F",
                 }}
               >
                 {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
@@ -133,6 +136,10 @@ const Login = () => {
               sx={{
                 backgroundColor: "#44B26F",
                 color: "#fff",
+                p: "13px",
+                borderRadius: 0,
+                mb: "25px",
+                fontSize: "18px"
               }}
             >
               Login
