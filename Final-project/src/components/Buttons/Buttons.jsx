@@ -1,8 +1,9 @@
 import { Box, Button } from "@mui/material";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AddIcon from "@mui/icons-material/Add";
+import { useState } from "react";
 
-const Buttons = () => {
+const Buttons = ({setOpen}) => {
   return (
     <>
       <Box
@@ -31,6 +32,7 @@ const Buttons = () => {
           Preview
         </Button>
         <Button
+          onClick={() => setOpen(true)}
           variant="outlined"
           startIcon={<AddIcon sx={{ width: "25px", height: "25px" }} />}
           sx={{

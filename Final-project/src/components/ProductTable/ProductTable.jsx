@@ -29,14 +29,17 @@ const ProductTable = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        mt: 4,
+        mt: "5px",
+        gap: "75px",
       }}
     >
       <Typography
         variant="h5"
         sx={{
-          mb: 3,
-          fontWeight: 600,
+          fontWeight: 700,
+          fontSize: "64px",
+          lineHeight: 1,
+          color: "white",
         }}
       >
         Products
@@ -58,10 +61,16 @@ const ProductTable = () => {
           }}
         >
           <TableHead>
-            <TableRow>
+            <TableRow sx={{ backgroundColor: "#0EC86F" }}>
               <TableCell
                 sx={{
                   width: "145px",
+                  textAlign: "center",
+                  color: "#726969",
+                  padding: "10px",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  lineHeight: 1,
                 }}
               >
                 №
@@ -69,6 +78,12 @@ const ProductTable = () => {
               <TableCell
                 sx={{
                   width: "145px",
+                  textAlign: "center",
+                  color: "#726969",
+                  padding: "10px",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  lineHeight: 1,
                 }}
               >
                 Category
@@ -76,6 +91,12 @@ const ProductTable = () => {
               <TableCell
                 sx={{
                   width: "145px",
+                  textAlign: "center",
+                  color: "#726969",
+                  padding: "10px",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  lineHeight: 1,
                 }}
               >
                 Name
@@ -83,6 +104,12 @@ const ProductTable = () => {
               <TableCell
                 sx={{
                   width: "145px",
+                  textAlign: "center",
+                  color: "#726969",
+                  padding: "10px",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  lineHeight: 1,
                 }}
               >
                 Quantity
@@ -90,6 +117,12 @@ const ProductTable = () => {
               <TableCell
                 sx={{
                   width: "145px",
+                  textAlign: "center",
+                  color: "#726969",
+                  padding: "10px",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  lineHeight: 1,
                 }}
               >
                 Price
@@ -97,6 +130,12 @@ const ProductTable = () => {
               <TableCell
                 sx={{
                   width: "145px",
+                  textAlign: "center",
+                  color: "#726969",
+                  padding: "10px",
+                  fontSize: "16px",
+                  fontWeight: 700,
+                  lineHeight: 1,
                 }}
               />
             </TableRow>
