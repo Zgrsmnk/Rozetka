@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import productsAsyncAction from "../../redux/products/saga/asyncAction";
 import ProductItem from "../ProductItem/ProductItem";
 
-const ProductTable = () => {
+const ProductTable = ({ setOpen, setEditItem, setOpenDelete, setDeleteItem }) => {
   const dispatch = useDispatch();
 
   const items = useSelector((state) => state.products.items);
@@ -143,7 +143,14 @@ const ProductTable = () => {
 
           <TableBody>
             {items.map((item) => (
-              <ProductItem key={item.id} item={item} />
+              <ProductItem
+                key={item.id}
+                item={item}
+                setEditItem={setEditItem}
+                setOpen={setOpen}
+                setOpenDelete={setOpenDelete}
+                setDeleteItem={setDeleteItem}
+              />
             ))}
           </TableBody>
         </Table>

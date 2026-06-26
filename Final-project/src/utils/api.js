@@ -13,6 +13,14 @@ const api = {
   createProduct(data) {
     return instance.post("/", data);
   },
+
+  updateProduct(id, data) {
+    return instance.put(`/${id}`, data);
+  },
+
+  deleteProduct(id) {
+    return instance.delete(`/${id}`);
+  },
 };
 
 export default api;

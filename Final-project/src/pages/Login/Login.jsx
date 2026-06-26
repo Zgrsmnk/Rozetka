@@ -10,6 +10,9 @@ import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../redux/slices/authSlice";
+import { saveAuth } from "../../utils/localStorage";
 
 const Login = () => {
   const {
@@ -20,9 +23,15 @@ const Login = () => {
     defaultValues: {},
   });
 
+  const dispatch = useDispatch();
+  
   const submit = (data) => {
     if (data.email === "admin5" && data.password === "admin5") {
       setAuthError("");
+
+      dispatch(loginSuccess());
+      saveAuth(true);
+
       navigate("/productsTable");
     } else {
       setAuthError("The user does not exist");
@@ -64,7 +73,6 @@ const Login = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              // gap: 5,
               paddingTop: "80.5px",
               width: "277px",
             }}
@@ -119,7 +127,6 @@ const Login = () => {
                   position: "absolute",
                   right: 12,
                   top: 17,
-                  // transform: "translateY(-50%)",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",

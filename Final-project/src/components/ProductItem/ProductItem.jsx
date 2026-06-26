@@ -1,11 +1,10 @@
 import { TableCell, TableRow } from "@mui/material";
 import ModeIcon from "@mui/icons-material/Mode";
 import InventoryIcon from "@mui/icons-material/Inventory";
-import { Box, IconButton, } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { formatPrice } from "../../utils/formatPrice";
 
-
-const ProductItem = ({item}) => {
+const ProductItem = ({ item, setEditItem, setOpenDelete, setOpen, setDeleteItem }) => {
   return (
     <TableRow>
       <TableCell
@@ -71,11 +70,23 @@ const ProductItem = ({item}) => {
             gap: "10px",
           }}
         >
-          <IconButton size="small">
+          <IconButton
+            onClick={() => {
+              setEditItem(item);
+              setOpen(true);
+            }}
+            size="small"
+          >
             <ModeIcon sx={{ color: "#000000" }} />
           </IconButton>
 
-          <IconButton size="small">
+          <IconButton
+            onClick={() => {
+              setOpenDelete(true);
+              setDeleteItem(item);
+            }}
+            size="small"
+          >
             <InventoryIcon sx={{ color: "#000000" }} />
           </IconButton>
         </Box>

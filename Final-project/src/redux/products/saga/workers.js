@@ -21,3 +21,23 @@ export function* createProductWorker(action) {
     console.error(error);
   }
 }
+
+export function* updateProductWorker(action) {
+  const { id, data } = action.payload;
+
+  yield call(api.updateProduct, id, data);
+
+  const { data: updated } = yield call(api.getProducts);
+  yield put(setItems(updated));
+}
+
+export function* deleteProductWorker(action) {
+  try {
+    yield call(api.deleteProduct, action.payload);
+
+    const { data } = yield call(api.getProducts);
+    yield put(setItems(data));
+  } catch (error) {
+    console.error(error);
+  }
+}

@@ -9,8 +9,9 @@ import { useForm } from "react-hook-form";
 import { composeValidators, required } from "../../validators/validators";
 import { useDispatch } from "react-redux";
 import productsAsyncAction from "../../redux/products/saga/asyncAction";
+import { useEffect } from "react";
 
-export default function ProductModal({ open, onClose }) {
+export default function ProductModal({ open, onClose, editItem }) {
   const {
     register,
     handleSubmit,
@@ -20,13 +21,38 @@ export default function ProductModal({ open, onClose }) {
     defaultValues: {},
   });
 
-    
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const submit = (data) => {
+  const submit = (data) => {
+    if (editItem) {
+      dispatch(
+        productsAsyncAction.updateProduct({
+          id: editItem.id,
+          data,
+        }),
+      );
+    } else {
       dispatch(productsAsyncAction.createProduct(data));
-      reset();
-    };
+    }
+
+    reset();
+    onClose();
+  };
+
+  useEffect(() => {
+    if (editItem) {
+      reset(editItem);
+    } else {
+      reset({
+        category: "",
+        name: "",
+        quantity: "",
+        price: "",
+        photo: "",
+        description: "",
+      });
+    }
+  }, [editItem, reset]);
 
   return (
     <Dialog
@@ -49,7 +75,7 @@ export default function ProductModal({ open, onClose }) {
             color: "#D9D9D9",
           }}
         >
-          Add Product
+          {editItem ? "Edit Product" : "Add Product"}
           <IconButton
             onClick={onClose}
             sx={{
@@ -177,7 +203,7 @@ export default function ProductModal({ open, onClose }) {
             />
             <Typography sx={{ mt: "20px", color: "white" }}>Photo</Typography>
             <TextField
-              {...register("Photo")}
+              {...register("photo")}
               type="text"
               fullWidth
               sx={{
@@ -197,7 +223,7 @@ export default function ProductModal({ open, onClose }) {
               Description
             </Typography>
             <TextField
-              {...register("Description")}
+              {...register("description")}
               type="text"
               fullWidth
               sx={{

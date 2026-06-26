@@ -2,8 +2,12 @@ import { Box, Button } from "@mui/material";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const Buttons = ({setOpen}) => {
+const Buttons = ({ setOpen }) => {
+  
+  const navigate = useNavigate();
+
   return (
     <>
       <Box
@@ -16,6 +20,7 @@ const Buttons = ({setOpen}) => {
         }}
       >
         <Button
+          onClick={() => navigate("/productsPreview")}
           variant="outlined"
           startIcon={
             <PersonOutlineOutlinedIcon sx={{ width: "25px", height: "25px" }} />
